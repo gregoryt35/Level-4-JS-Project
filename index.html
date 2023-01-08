@@ -6,11 +6,72 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bug Splat</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function initialize() {
+            var numBugs = 15;
+
+            const defiantComments = ["I'll get you for this!", "Grrr!", "Still plently of us left!", "Is that all you got?", 
+            "You almost missed me!", "Haha!", "We will have our revenge!", "Curse you!"];
+
+            const pleadingComments = ["Please don't splat me!", "Nooo!", "Spare me!", "Whyyy?", 
+            "Save me!", "You don't have to do this!", "Please stop!"];
+
+            var message = "";
+        }
+
+        function splatBug(id) {
+            if (document.getElementsById(id).src !== "media/splat.png") {
+                document.getElementsById(id).src = "media/splat.png";
+
+                if (numBugs >= 8) message = setMessage(defiantComments);
+                else message = setMessage(pleadingComments);
+
+                numBugs--;
+            }
+        }
+
+        function setMessage(array) {
+            let numElements = array.length;
+            let idx = getRandomNumber(0, numElements);
+            return array[idx];
+        }
+
+        function getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    </script>
 </head>
 
-<body>
-    
+<body onclick="initialize();">
+
+    <h1>Bug Splat</h1>
+
+    <div class="grid">
+        <img class="bug" id="bug1" src="media/bug.png" alt="bug" onclick="splatBug('bug1');">
+        <img class="bug" id="bug2" src="media/bug.png" alt="bug" onclick="splatBug('bug2');">
+        <img class="bug" id="bug3" src="media/bug.png" alt="bug" onclick="splatBug('bug3');">
+        <img class="bug" id="bug4" src="media/bug.png" alt="bug" onclick="splatBug('bug4');">
+        <img class="bug" id="bug5" src="media/bug.png" alt="bug" onclick="splatBug('bug5');">
+        <img class="bug" id="bug6" src="media/bug.png" alt="bug" onclick="splatBug('bug6');">
+        <img class="bug" id="bug7" src="media/bug.png" alt="bug" onclick="splatBug('bug7');">
+        <img class="bug" id="bug8" src="media/bug.png" alt="bug" onclick="splatBug('bug8');">
+        <img class="bug" id="bug9" src="media/bug.png" alt="bug" onclick="splatBug('bug9');">
+        <img class="bug" id="bug10" src="media/bug.png" alt="bug" onclick="splatBug('bug10');">
+        <img class="bug" id="bug11" src="media/bug.png" alt="bug" onclick="splatBug('bug11');">
+        <img class="bug" id="bug12" src="media/bug.png" alt="bug" onclick="splatBug('bug12');">
+        <img class="bug" id="bug13" src="media/bug.png" alt="bug" onclick="splatBug('bug13');">
+        <img class="bug" id="bug14" src="media/bug.png" alt="bug" onclick="splatBug('bug14');">
+        <img class="bug" id="bug15" src="media/bug.png" alt="bug" onclick="splatBug('bug15');">
+    </div>
+
+    <h2>Message</h2>
+
+    <div class="messages">
+        <p id="message"><p>
+    </div>
+
 </body>
 
 </html>
