@@ -8,6 +8,7 @@ body {
 }
 
 h1 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: purple;
 }
 
@@ -22,17 +23,22 @@ h1 {
     border-radius: 25px;
 }
 
-.bug {
-    border-radius: 15px;
-}
-
 h2 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: purple;
 }
 
 .messages {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 25%;
     border: 3px solid purple;
     border-radius: 25px;
     padding: 2%;
+}
+
+#message {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: purple;
 }

@@ -9,31 +9,38 @@
     <title>Bug Splat</title>
     <link rel="stylesheet" href="style.css">
     <script>
-        function initialize() {
-            var numBugs = 15;
 
-            const defiantComments = ["I'll get you for this!", "Grrr!", "Still plently of us left!", "Is that all you got?", 
-            "You almost missed me!", "Haha!", "We will have our revenge!", "Curse you!"];
+        numBugs = 15;
 
-            const pleadingComments = ["Please don't splat me!", "Nooo!", "Spare me!", "Whyyy?", 
-            "Save me!", "You don't have to do this!", "Please stop!"];
+        defiantComments = ["I'll get you for this!", "Grrr!", "Still plently of us left!", "Is that all you got?", 
+        "You almost missed me!", "Haha!", "We will have our revenge!", "Curse you!"];
 
-            var message = "";
-        }
+        pleadingComments = ["Please don't splat me!", "Nooo!", "Spare me!", "Whyyy?", 
+        "Save me!", "You don't have to do this!", "Please stop!"];
+
+        message = "";
 
         function splatBug(id) {
-            if (document.getElementsById(id).src !== "media/splat.png") {
-                document.getElementsById(id).src = "media/splat.png";
+            if (numBugs >= 1) {
+                if (document.getElementById(id).src !== "media/splat.png") {
+                    document.getElementById(id).src = "media/splat.png";
 
-                if (numBugs >= 8) message = setMessage(defiantComments);
-                else message = setMessage(pleadingComments);
+                    numBugs--;
 
-                numBugs--;
+                    if (numBugs >= 8) message = setMessage(defiantComments);
+                    else if (numBugs >= 1) message = setMessage(pleadingComments);
+                    else message = "You've splatted us all."
+
+                    document.getElementById("message").innerHTML = message;
+
+                    console.log(numBugs);
+                }
+                else document.getElementById(id).src = "media/bug.png";
             }
         }
 
         function setMessage(array) {
-            let numElements = array.length;
+            let numElements = array.length - 1;
             let idx = getRandomNumber(0, numElements);
             return array[idx];
         }
@@ -44,7 +51,7 @@
     </script>
 </head>
 
-<body onclick="initialize();">
+<body>
 
     <h1>Bug Splat</h1>
 
